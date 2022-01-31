@@ -8,5 +8,14 @@
 </head>
 <body>
     <h2>devonadam.github.io</h2>
+    <h3>my repos</h3>
+    <div id="repos"></div>
+    <script>
+        fetch("https://api.github.com/users/devonadam/repos").then(response => response.json()).then((gitRepos) => {
+            gitRepos.forEach(repo => {
+                repos.innerHTML+=`<li>${repo.name} - ${repo.description}</li>`
+            })
+        })
+    </script>
 </body>
 </html>
